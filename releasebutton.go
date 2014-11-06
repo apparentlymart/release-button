@@ -6,12 +6,46 @@ import (
 	"os"
 	"fmt"
 	"time"
-//	"path/filepath"
-//	"strings"
-//	"io/ioutil"
+	"net/http"
+	"io/ioutil"
+	"bytes"
 )
 
+type Project struct {
+	name string
+	statusUrl string
+	stable bool
+	building bool
+}
 
+var projects []Project = []Project{
+	Project{
+		name: "Phoenix",
+		statusUrl: "http://maria.saymedia.com/job/phoenix/job/master/api/json?tree=color",
+		stable: true,
+		building: false,
+	},
+	Project{
+		name: "CMS",
+		statusUrl: "http://maria.saymedia.com/job/tempest/job/master/api/json?tree=color",
+		stable: true,
+		building: false,
+	},
+	Project{
+		name: "ContentSvc",
+		statusUrl: "http://maria.saymedia.com/job/contentsvc/job/master/api/json?tree=color",
+		stable: true,
+		building: false,
+	},
+	Project{
+		name: "Kraken",
+		statusUrl: "http://maria.saymedia.com/job/kraken/job/master/api/json?tree=color",
+		stable: true,
+		building: false,
+	},
+}
+
+var currentProject *Project = &projects[0]
 
 func buttons(epollFD int, releaseValueFile *os.File) {
 	releaseFd := int(releaseValueFile.Fd())
@@ -56,9 +90,48 @@ func buttons(epollFD int, releaseValueFile *os.File) {
 func lights(statusValueFile *os.File) {
 	for {
 		time.Sleep(time.Second)
-		statusValueFile.Write([]byte{'0'})
+		if currentProject.building {
+			statusValueFile.Write([]byte{'0'})
+		} else {
+			if currentProject.stable {
+				statusValueFile.Write([]byte{'1'})
+			} else {
+				statusValueFile.Write([]byte{'0'})
+			}
+		}
 		time.Sleep(time.Second)
-		statusValueFile.Write([]byte{'1'})
+		if currentProject.stable {
+			statusValueFile.Write([]byte{'1'})
+		} else {
+			statusValueFile.Write([]byte{'0'})
+		}
+	}
+}
+
+func pollStatus(projects []Project) {
+	blue_bytes := []byte{'b', 'l', 'u', 'e'}
+	anime_bytes := []byte{'a', 'n', 'i', 'm', 'e'}
+
+	for {
+		for _, project := range projects {
+			resp, err := http.Get(project.statusUrl)
+			if err != nil {
+				fmt.Println("Failed to get build status for %s", project.name)
+				continue
+			}
+
+			body, err := ioutil.ReadAll(resp.Body)
+			if err != nil {
+				fmt.Println("Failed to read body for %s", project.name)
+				continue
+			}
+
+			project.stable = bytes.Contains(body[:], blue_bytes)
+			project.building = bytes.Contains(body[:], anime_bytes)
+
+			resp.Body.Close()
+			time.Sleep(10 * time.Second)
+		}
 	}
 }
 
@@ -79,10 +152,12 @@ func main() {
 	statusValueFile, err := os.OpenFile("/sys/class/gpio/gpio24/value", os.O_RDWR, 0600)
 	if err != nil {
 		fmt.Println("No status LED GPIO pin")
+		return
 	}
 
 	go buttons(epollFD, releaseValueFile)
 	go lights(statusValueFile)
+	go pollStatus(projects)
 
 	c := make(chan int32)
 	<-c
