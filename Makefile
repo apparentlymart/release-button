@@ -7,3 +7,6 @@ releasebutton: releasebutton.go
 
 upload: releasebutton
 	scp releasebutton $(PI_USERNAME)@$(PI_HOSTNAME):
+
+run: upload
+	ssh $(PI_USERNAME)@$(PI_HOSTNAME) sudo ./releasebutton
