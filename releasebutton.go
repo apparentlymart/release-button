@@ -47,7 +47,13 @@ var projects []Project = []Project{
 
 var currentProject *Project = &projects[0]
 
-func buttons(epollFD int, releaseValueFile *os.File) {
+func buttons(releaseValueFile *os.File) {
+	epollFD, err := syscall.EpollCreate1(0)
+	if err != nil {
+		fmt.Println("No epoll")
+		return
+	}
+
 	releaseFd := int(releaseValueFile.Fd())
 
 	if err := syscall.SetNonblock(releaseFd, true); err != nil {
@@ -135,17 +141,63 @@ func pollStatus(projects []Project) {
 	}
 }
 
-func main() {
-
+func menu(counterClockValueFile *os.File) {
 	epollFD, err := syscall.EpollCreate1(0)
 	if err != nil {
 		fmt.Println("No epoll")
 		return
 	}
 
+	counterClockFd := int(counterClockValueFile.Fd())
+
+	if err := syscall.SetNonblock(counterClockFd, true); err != nil {
+		fmt.Println("Couldn't set nonblock")
+		return
+	}
+
+	var event syscall.EpollEvent
+
+	event.Fd = int32(counterClockFd)
+	event.Events = syscall.EPOLLIN | (syscall.EPOLLET & 0xffffffff) | syscall.EPOLLPRI
+
+	if err := syscall.EpollCtl(epollFD, syscall.EPOLL_CTL_ADD, counterClockFd, &event); err != nil {
+		fmt.Println("Cannot EpollCtl")
+		return
+	}
+
+	var epollEvents [1]syscall.EpollEvent
+	readBuf := []byte{0};
+
+	for {
+		numEvents, err := syscall.EpollWait(epollFD, epollEvents[:], -1)
+		if err != nil {
+			fmt.Println("epoll wait failed")
+		}
+		for i := 0; i < numEvents; i++ {
+			//fmt.Println("event")
+		}
+		counterClockValueFile.ReadAt(readBuf, 0)
+		if (readBuf[0] == '1') {
+			fmt.Println("turn")
+		} else if (readBuf[0] == '0') {
+			fmt.Println("unturn")
+		} else {
+			fmt.Println("huh?")
+		}
+	}
+}
+
+func main() {
+
 	releaseValueFile, err := os.OpenFile("/sys/class/gpio/gpio25/value", os.O_RDWR, 0600)
 	if err != nil {
 		fmt.Println("No release button GPIO pin")
+		return
+	}
+
+	rotaryCounterClockValueFile, err := os.OpenFile("/sys/class/gpio/gpio18/value", os.O_RDWR, 0600)
+	if err != nil {
+		fmt.Println("No counter-clockwise rotary GPIO pin")
 		return
 	}
 
@@ -155,9 +207,10 @@ func main() {
 		return
 	}
 
-	go buttons(epollFD, releaseValueFile)
+	go buttons(releaseValueFile)
 	go lights(statusValueFile)
 	go pollStatus(projects)
+	go menu(rotaryCounterClockValueFile)
 
 	c := make(chan int32)
 	<-c
