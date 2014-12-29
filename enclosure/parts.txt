@@ -1,0 +1,18 @@
+
+Polycase WA-34 enclosure:
+http://www.polycase.com/wa-34
+
+Massive Arcade Button:
+https://www.adafruit.com/products/1188
+
+1.3" 128x64 monochrome OLED:
+https://www.adafruit.com/products/938
+
+Rotary Encoder:
+https://www.adafruit.com/product/377
+
+Rotary Encoder Knob:
+http://www.ebay.com/itm/321575821589
+
+
+
