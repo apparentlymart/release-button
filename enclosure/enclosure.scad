@@ -38,6 +38,85 @@ module medium_button() {
     };
 };
 
+module large_button(cutout=false) {
+    chassis_color = [0.1, 0.1, 0.1];
+    button_color = [0, 0.4, 0];
+
+    union() {
+        if (! cutout) {
+            color(chassis_color)
+            cylinder(
+                h=6.5,
+                r1=98.5 / 2,
+                r2=87.8 / 2
+            );
+
+            color(button_color) {
+                translate([0, 0, 6.5])
+                intersection() {
+                    translate([0, 0, 3])
+                    scale([78.78, 78.78, (21 * 2) - (3 * 2)])
+                    sphere(r=0.5, $fn=50);
+
+                    cylinder(
+                        r=78.78/2,
+                        h=22 * 2
+                    );
+                }
+
+                cylinder(
+                    r=78.78/2,
+                    h=6.5 + 3,
+                    $fn=50
+                );
+            }
+        }
+
+        color(chassis_color)
+        translate([0, 0, -10.5])
+        cylinder(
+            h=11,
+            r=87.8 / 2,
+            $fn=250
+        );
+
+        color(chassis_color)
+        translate([(93.7 / 2) - 3, 0, cutout ? -4 : -3])
+        cylinder(
+            r=3,
+            h=cutout ? 5 : 4,
+            $fn=50
+        );
+        color(chassis_color)
+        translate([-((93.7 / 2) - 3), 0, cutout ? -4 : -3])
+        cylinder(
+            r=3,
+            h=cutout ? 5 : 4,
+            $fn=50
+        );
+
+        color(chassis_color)
+        translate([0, 0, -10.5 - 4.5])
+        cylinder(
+            h=4.5,
+            r1=23.74 / 2,
+            r2=27.3 / 2
+        );
+
+        color(chassis_color)
+        translate([0, 0, -10.5 - 31.5])
+        cylinder(
+            h=31.5,
+            r=23.74 / 2
+        );
+
+        color(chassis_color)
+        translate([-27.65/2, -9.65/2, -53.75 - 10.5])
+        cube(size=[27.65, 9.65, 16.1]);
+
+    };
+};
+
 module pcb(width, height, radius=0.001) {
     linear_extrude(height=1.6)
     rounded_square(width, height, radius);
@@ -79,6 +158,7 @@ module circle_cutout_square(width, height, radius) {
 }
 
 module enclosure(base=true, lid=true) {
+    main_color=[0.5, 0.5, 0.5];
     corner_radius = 5.969;
     width = 120.2182;
     depth = 199.9996;
@@ -112,56 +192,61 @@ module enclosure(base=true, lid=true) {
         circle_cutout_square(88.2396, 187.6298, inner_concave_radius);
     }
 
-    if (base) {
-        difference() {
-            linear_extrude(height=base_height)
-            rounded_square(width, depth, corner_radius);
+    color(main_color) {
+        if (base) {
+            difference() {
+                linear_extrude(height=base_height)
+                rounded_square(width, depth, corner_radius);
 
-            translate([0, 0, floor_thickness])
-            linear_extrude(height=base_height + 1)
-            cavity();
+                translate([0, 0, floor_thickness])
+                linear_extrude(height=base_height + 1)
+                cavity();
+            }
+
+            translate([width / 2, depth / 2, floor_thickness])
+            {
+                pcb_mounting_screw();
+
+                mirror ([0, 1, 0])
+                pcb_mounting_screw();
+
+                mirror ([1, 0, 0])
+                pcb_mounting_screw();
+
+                mirror ([0, 1, 0])
+                mirror ([1, 0, 0])
+                pcb_mounting_screw();
+
+            }
         }
 
-        translate([width / 2, depth / 2, floor_thickness])
-        {
-            pcb_mounting_screw();
+        if (lid) {
+            translate([0, 0, base_height])
+            difference() {
+                linear_extrude(height=lid_height)
+                rounded_square(width, depth, corner_radius);
 
-            mirror ([0, 1, 0])
-            pcb_mounting_screw();
-
-            mirror ([1, 0, 0])
-            pcb_mounting_screw();
-
-            mirror ([0, 1, 0])
-            mirror ([1, 0, 0])
-            pcb_mounting_screw();
-
-        }
-    }
-
-    if (lid) {
-        translate([0, 0, base_height])
-        difference() {
-            linear_extrude(height=lid_height)
-            rounded_square(width, depth, corner_radius);
-
-            translate([0, 0, -1])
-            linear_extrude(height=(lid_height - floor_thickness) + 1)
-            cavity();
+                translate([0, 0, -1])
+                linear_extrude(height=(lid_height - floor_thickness) + 1)
+                cavity();
+            }
         }
     }
 }
 
-module enclosure_lid() {
+module overview() {
+    translate([120.2182 / 2, 74.250 + 49.25, 59.1566 + 15.0368])
+    rotate(90, [0, 0, 1])
+    large_button(cut_only=false);
 
+    difference() {
+        enclosure(base=true, lid=true);
+
+        translate([120.2182 / 2, 74.250 + 49.25, 59.1566 + 15.0368])
+        rotate(90, [0, 0, 1])
+        large_button(cutout=true);
+    }
 }
 
-//pi();
-//medium_button();
-//pcb(38, 29, radius=3.5);
-
-//projection(cut=true)
-//translate([0, 0, -3.44])
-enclosure(base=true, lid=false);
-
+overview();
 
