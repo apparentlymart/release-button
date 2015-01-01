@@ -312,18 +312,47 @@ module display_module(cutout=false) {
     }
 }
 
+module rotary_encoder(cutout=false) {
+    mechanism_color = [0.8, 0.8, 0.8];
+
+    if (! cutout) {
+        color(mechanism_color)
+        translate([0, 0, -6.5/2])
+        cube([12.5, 13.2, 6.5], center=true);
+
+        color(mechanism_color)
+        translate([0, 0, 5])
+        difference() {
+            cylinder(h=15 - 5, r=6 / 2);
+
+            translate([-5, 0.5, 15 - 5 - 7])
+            cube(size=10);
+        }
+    }
+
+    color(mechanism_color)
+    translate([0, 0, -1])
+    cylinder(h=5 + 1 + (cutout ? 5 : 0), r=(7 / 2) + tolerance(cutout));
+}
+
 module overview(cutout) {
     top_feature_height = 59.1566 + 15.0368;
     button_y_offset = 22.7398;
     display_y_offset = -63.3898;
+    display_x_offset = -20;
+    rotary_encoder_x_offset = 28.5;
 
     if (! cutout) {
         translate([0, button_y_offset, top_feature_height])
         rotate(90, [0, 0, 1])
         large_button(cutout=false);
 
-        translate([0, display_y_offset, top_feature_height - 3.43])
+        translate([display_x_offset, display_y_offset, top_feature_height - 3.43])
         display_module(cutout=false);
+
+        translate([rotary_encoder_x_offset, display_y_offset, top_feature_height - 3.43])
+        rotary_encoder(cutout=false);
+
     }
 
     color([0.5, 0.5, 0.5])
@@ -334,10 +363,12 @@ module overview(cutout) {
         rotate(90, [0, 0, 1])
         large_button(cutout=true);
 
-        translate([0, display_y_offset, top_feature_height - 3.43])
+        translate([-20, display_y_offset, top_feature_height - 3.43])
         display_module(cutout=true);
+
+        translate([rotary_encoder_x_offset, display_y_offset, top_feature_height - 3.43])
+        rotary_encoder(cutout=true);
     }
 }
 
 overview(cutout=false);
-
