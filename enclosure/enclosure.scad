@@ -1,6 +1,8 @@
 
 $fn = 50;
 
+function tolerance(cutout) = cutout ? 0.127 : 0;
+
 module pi() {
     translate([665.2,-524.2,10.3]) {
         import("raspi_aplus.stl");
@@ -77,21 +79,21 @@ module large_button(cutout=false) {
         translate([0, 0, -10.5])
         cylinder(
             h=11,
-            r=87.8 / 2,
+            r=(87.8 / 2) + tolerance(cutout),
             $fn=250
         );
 
         color(chassis_color)
         translate([(93.7 / 2) - 3, 0, cutout ? -4 : -3])
         cylinder(
-            r=3,
+            r=3 + tolerance(cutout),
             h=cutout ? 5 : 4,
             $fn=50
         );
         color(chassis_color)
         translate([-((93.7 / 2) - 3), 0, cutout ? -4 : -3])
         cylinder(
-            r=3,
+            r=3 + tolerance(cutout),
             h=cutout ? 5 : 4,
             $fn=50
         );
@@ -284,7 +286,7 @@ module display_module(cutout=false) {
     module holes(cutout) {
         translate([0, 0, -0.5])
         four_about_origin(29, 29.5)
-        cylinder(h=6.5, r=3.2/2);
+        cylinder(h=6.5, r=(3.2/2) + tolerance(cutout));
 
         if (cutout) {
             translate([0, 0, 1.6 + 1.4])
