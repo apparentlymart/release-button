@@ -312,8 +312,9 @@ module display_module(cutout=false) {
     }
 }
 
-module rotary_encoder(cutout=false) {
+module rotary_encoder(cutout=false, knob=true) {
     mechanism_color = [0.8, 0.8, 0.8];
+    knob_color = [0.99, 0.99, 0.99];
     screw_washer_thickness = 0.5;
     screw_wall_thickness = (3.429 * 0.75) - screw_washer_thickness;
 
@@ -341,6 +342,20 @@ module rotary_encoder(cutout=false) {
 
             translate([0, 0, -0.5])
             cylinder(r=(7 / 2) - 0.2, h=3);
+        }
+
+        if (knob) {
+            color(knob_color)
+            translate([0, 0, 15 - 7 - 2])
+            hull() {
+                // The bevels here are just cosmetic since there is
+                // no mechanical diagram of this part and I don't have it
+                // yet to measure. Height and radius are somewhat accurate though.
+                cylinder(r1=14.5 / 2, r2=15 / 2, h=2);
+
+                translate([0, 0, 17 - 1])
+                cylinder(r1=15 / 2, r2=14.5 / 2, h=1);
+            }
         }
     }
 
