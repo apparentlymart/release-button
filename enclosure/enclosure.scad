@@ -289,7 +289,7 @@ module display_module(cutout=false) {
         cylinder(h=6.5, r=(3.2/2) + tolerance(cutout));
 
         if (cutout) {
-            translate([0, 0, 1.6 + 1.4])
+            translate([0, (23 / 2) - 11.708, 1.6 + 1.4])
             angled_rect_cut(32, 18, 32, 3.429, overshoot_top=1, overshoot_bottom=1);
         }
     }
@@ -306,8 +306,7 @@ module display_module(cutout=false) {
         }
 
         color([0, 0, 0])
-        translate([0, -11.708, 0])
-        translate([0, 23 / 2, -1.4])
+        translate([0, (23 / 2) - 11.708, -1.4])
         linear_extrude(height=1.45)
         rounded_square(35, 23, 0.001);
     }
