@@ -314,6 +314,8 @@ module display_module(cutout=false) {
 
 module rotary_encoder(cutout=false) {
     mechanism_color = [0.8, 0.8, 0.8];
+    screw_washer_thickness = 0.5;
+    screw_wall_thickness = (3.429 * 0.75) - screw_washer_thickness;
 
     if (! cutout) {
         color(mechanism_color)
@@ -328,11 +330,28 @@ module rotary_encoder(cutout=false) {
             translate([-5, 0.5, 15 - 5 - 7])
             cube(size=10);
         }
+
+        // Fastening nut, for reference and to show
+        // that it can actually screw on given the thickness
+        // of the case.
+        color(mechanism_color)
+        translate([0, 0, screw_wall_thickness + screw_washer_thickness])
+        difference() {
+            cylinder(r=11 / 2, h=2.27, $fn=6);
+
+            translate([0, 0, -0.5])
+            cylinder(r=(7 / 2) - 0.2, h=3);
+        }
     }
 
     color(mechanism_color)
     translate([0, 0, -1])
     cylinder(h=5 + 1 + (cutout ? 5 : 0), r=(7 / 2) + tolerance(cutout));
+
+    if (cutout) {
+        translate([0, 0, screw_wall_thickness - tolerance(cutout)])
+        cylinder(10, r=(15 / 2) + tolerance(cutout));
+    }
 }
 
 module overview(cutout) {
