@@ -1,4 +1,5 @@
-//cube(size=65, center=true);
+
+$fn = 50;
 
 module pi() {
     translate([665.2,-524.2,10.3]) {
@@ -117,8 +118,8 @@ module large_button(cutout=false) {
     };
 };
 
-module pcb(width, height, radius=0.001) {
-    linear_extrude(height=1.6)
+module pcb(width, height, thickness=1.6, radius=0.001) {
+    linear_extrude(height=thickness)
     rounded_square(width, height, radius);
 }
 
@@ -163,8 +164,21 @@ module circle_cutout_square(width, height, radius) {
    }
 }
 
+module four_about_origin(x_spacing, y_spacing) {
+    translate([-x_spacing / 2, -y_spacing / 2, 0])
+    child();
+
+    translate([-x_spacing / 2, y_spacing / 2, 0])
+    child();
+
+    translate([x_spacing / 2, -y_spacing / 2, 0])
+    child();
+
+    translate([x_spacing / 2, y_spacing / 2, 0])
+    child();
+}
+
 module enclosure(base=true, lid=true) {
-    main_color=[0.5, 0.5, 0.5];
     corner_radius = 5.969;
     width = 120.2182;
     depth = 199.9996;
@@ -195,7 +209,7 @@ module enclosure(base=true, lid=true) {
         circle_cutout_square(88.2396, 187.6298, inner_concave_radius);
     }
 
-    color(main_color) {
+    {
         if (base) {
             difference() {
                 linear_extrude(height=base_height)
@@ -237,19 +251,68 @@ module enclosure(base=true, lid=true) {
     }
 }
 
-module overview() {
-    translate([0, 0, 59.1566 + 15.0368])
-    rotate(90, [0, 0, 1])
-    large_button(cut_only=false);
+module display_module(cutout=false) {
+    // NOTE WELL: The dimensions in this module are just approximations
+    // based on the vague sizes on adafruit's site. They have not actually
+    // been measured yet and may need adjustment once we have a real unit
+    // to measure.
 
-    difference() {
-        enclosure(base=true, lid=true);
+    module holes(cutout) {
+        translate([0, 0, -0.5])
+        four_about_origin(27, 27)
+        cylinder(h=6.5, r=2.5/2);
 
-        translate([0, 0, 59.1566 + 15.0368])
-        rotate(90, [0, 0, 1])
-        large_button(cutout=true);
+        if (cutout) {
+            translate([0, 0, 1.6 + 1.4 - 5])
+            linear_extrude(height=7)
+            rounded_square(29.45 + 2.5, 14.70 + 2.5, 0.001);
+        }
+    }
+
+    if (cutout) {
+        holes(cutout);
+    }
+    else {
+        color([0.08, 0.36, 1])
+        translate([0, 0, -1.6 - 1.4])
+        difference() {
+            pcb(35, 35, radius=7, thickness=1.6);
+            holes(cutout);
+        }
+
+        color([0, 0, 0])
+        translate([0, 0, -1.4])
+        linear_extrude(height=1.5)
+        rounded_square(35, 20, 0.001);
     }
 }
 
-overview();
+module overview(cutout) {
+    top_feature_height = 59.1566 + 15.0368;
+    button_y_offset = 22.7398;
+    display_y_offset = -63.3898;
+
+    if (! cutout) {
+        translate([0, button_y_offset, top_feature_height])
+        rotate(90, [0, 0, 1])
+        large_button(cutout=false);
+
+        translate([0, display_y_offset, top_feature_height - 3.43])
+        display_module(cutout=false);
+    }
+
+    color([0.5, 0.5, 0.5])
+    difference() {
+        enclosure(base=true, lid=true);
+
+        translate([0, button_y_offset, top_feature_height])
+        rotate(90, [0, 0, 1])
+        large_button(cutout=true);
+
+        translate([0, display_y_offset, top_feature_height - 3.43])
+        display_module(cutout=true);
+    }
+}
+
+overview(cutout=false);
 
