@@ -370,7 +370,7 @@ module rotary_encoder(cutout=false, knob=true) {
 
     if (cutout) {
         translate([0, 0, screw_wall_thickness - tolerance(cutout)])
-        cylinder(10, r=(15 / 2) + tolerance(cutout));
+        cylinder(10, r1=(15 / 2) + tolerance(cutout), r2 = (20 / 2) + tolerance(cutout));
     }
 }
 
