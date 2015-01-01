@@ -284,13 +284,18 @@ module display_module(cutout=false) {
     // to measure.
 
     module holes(cutout) {
+        hole_lip_thickness = (3.429 * 0.4);
+
         translate([0, 0, -0.5])
         four_about_origin(29, 29.5)
         cylinder(h=6.5, r=(3.2/2) + tolerance(cutout));
 
         if (cutout) {
-            translate([0, (23 / 2) - 11.708, 1.6 + 1.4])
-            angled_rect_cut(32, 18, 32, 3.429, overshoot_top=1, overshoot_bottom=1);
+            translate([0, (23 / 2) - 11.708, 1.6 + 1.4 + hole_lip_thickness + tolerance(cutout)])
+            angled_rect_cut(32, 18, 32, 3.429, overshoot_top=1, overshoot_bottom=0);
+
+            translate([0, (23 / 2) - 11.708, (4 / 2) - 1])
+            cube([32, 18, 4], center=true);
         }
     }
 
