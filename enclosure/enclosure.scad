@@ -283,12 +283,12 @@ module display_module(cutout=false) {
 
     module holes(cutout) {
         translate([0, 0, -0.5])
-        four_about_origin(27, 27)
-        cylinder(h=6.5, r=2.5/2);
+        four_about_origin(29, 29.5)
+        cylinder(h=6.5, r=3.2/2);
 
         if (cutout) {
             translate([0, 0, 1.6 + 1.4])
-            angled_rect_cut(29.45 + 2.5, 14.70 + 2.5, 32, 3.429, overshoot_top=1, overshoot_bottom=1);
+            angled_rect_cut(32, 18, 32, 3.429, overshoot_top=1, overshoot_bottom=1);
         }
     }
 
@@ -299,14 +299,15 @@ module display_module(cutout=false) {
         color([0.08, 0.36, 1])
         translate([0, 0, -1.6 - 1.4])
         difference() {
-            pcb(35, 35, radius=7, thickness=1.6);
+            pcb(35, 35.5, radius=3.5, thickness=1.6);
             holes(cutout);
         }
 
         color([0, 0, 0])
-        translate([0, 0, -1.4])
-        linear_extrude(height=1.5)
-        rounded_square(35, 20, 0.001);
+        translate([0, -11.708, 0])
+        translate([0, 23 / 2, -1.4])
+        linear_extrude(height=1.45)
+        rounded_square(35, 23, 0.001);
     }
 }
 
