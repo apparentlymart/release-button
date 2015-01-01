@@ -123,36 +123,42 @@ module pcb(width, height, radius=0.001) {
 }
 
 module rounded_square(width, height, radius) {
+    translate_x = (width / 2) - radius;
+    translate_y = (height / 2) - radius;
+
     hull()
     {
-        translate([radius, radius, 0])
+        translate([-translate_x, -translate_y, 0])
         circle(r=radius);
 
-        translate([width - radius, radius, 0])
+        translate([translate_x, -translate_y, 0])
         circle(r=radius);
 
-        translate([radius, height - radius, 0])
+        translate([translate_x, translate_y, 0])
         circle(r=radius);
 
-        translate([width - radius, height - radius, 0])
+        translate([-translate_x, translate_y, 0])
         circle(r=radius);
    }
 }
 
 module circle_cutout_square(width, height, radius) {
+    translate_x = (width / 2);
+    translate_y = (height / 2);
+
     difference() {
-        scale([width, height, 0])
-        square();
+        square(size=[width, height], center=true);
 
+        translate([-translate_x, -translate_y, 0])
         circle(r=radius);
 
-        translate([width, 0, 0])
+        translate([translate_x, -translate_y, 0])
         circle(r=radius);
 
-        translate([0, height, 0])
+        translate([translate_x, translate_y, 0])
         circle(r=radius);
 
-        translate([width, height, 0])
+        translate([-translate_x, translate_y, 0])
         circle(r=radius);
    }
 }
@@ -182,13 +188,10 @@ module enclosure(base=true, lid=true) {
     }
 
     module cavity() {
-        translate([vert_inner_cut_offset, wall_thickness, 0])
         rounded_square(width - (vert_inner_cut_offset * 2), depth - (wall_thickness * 2), 1.27);
 
-        translate([wall_thickness, horiz_inner_cut_offset, 0])
         rounded_square(width - (wall_thickness * 2), depth - (horiz_inner_cut_offset * 2), 1.27);
 
-        translate([15.9258, 6.2484, 0])
         circle_cutout_square(88.2396, 187.6298, inner_concave_radius);
     }
 
@@ -203,7 +206,7 @@ module enclosure(base=true, lid=true) {
                 cavity();
             }
 
-            translate([width / 2, depth / 2, floor_thickness])
+            translate([0, 0, floor_thickness])
             {
                 pcb_mounting_screw();
 
@@ -235,14 +238,14 @@ module enclosure(base=true, lid=true) {
 }
 
 module overview() {
-    translate([120.2182 / 2, 74.250 + 49.25, 59.1566 + 15.0368])
+    translate([0, 0, 59.1566 + 15.0368])
     rotate(90, [0, 0, 1])
     large_button(cut_only=false);
 
     difference() {
         enclosure(base=true, lid=true);
 
-        translate([120.2182 / 2, 74.250 + 49.25, 59.1566 + 15.0368])
+        translate([0, 0, 59.1566 + 15.0368])
         rotate(90, [0, 0, 1])
         large_button(cutout=true);
     }
