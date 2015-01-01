@@ -178,6 +178,30 @@ module four_about_origin(x_spacing, y_spacing) {
     child();
 }
 
+module angled_rect_cut(width, height, angle, depth, overshoot_top=0, overshoot_bottom=0) {
+
+    growth = (depth + overshoot_top) * tan(angle);
+    shrinkage = overshoot_bottom * tan(angle);
+
+    difference() {
+        hull() {
+            // Cube whose bottom face represents the bottom of the cut.
+            translate([0, 0, (depth + overshoot_bottom)/-2])
+            cube(size=[width - (shrinkage * 2), height - (shrinkage * 2), depth + overshoot_bottom], center=true);
+
+            // Cube whose bottom face represents the top of the cut.
+            // (We'll cut this cube off once we're done using it as a basis)
+            translate([0, 0, 0.5 + overshoot_top])
+            cube(size=[width + (growth * 2), height + (growth * 2), 1], center=true);
+        }
+
+        // A slightly bigger cube than the one we used to represent the top, so
+        // we eliminate the extra on top and keep just the angled part.
+        translate([0, 0, 1 + overshoot_top])
+        cube(size=[width + (growth * 2) + 1, height + (growth * 2) + 1, 2], center=true);
+    }
+}
+
 module enclosure(base=true, lid=true) {
     corner_radius = 5.969;
     width = 120.2182;
@@ -263,9 +287,8 @@ module display_module(cutout=false) {
         cylinder(h=6.5, r=2.5/2);
 
         if (cutout) {
-            translate([0, 0, 1.6 + 1.4 - 5])
-            linear_extrude(height=7)
-            rounded_square(29.45 + 2.5, 14.70 + 2.5, 0.001);
+            translate([0, 0, 1.6 + 1.4])
+            angled_rect_cut(29.45 + 2.5, 14.70 + 2.5, 32, 3.429, overshoot_top=1, overshoot_bottom=1);
         }
     }
 
