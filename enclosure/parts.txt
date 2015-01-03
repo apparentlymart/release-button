@@ -14,5 +14,6 @@ https://www.adafruit.com/product/377
 Rotary Encoder Knob:
 http://www.ebay.com/itm/321575821589
 
-
+Pi HAT id EEPROM:
+http://www.digikey.com/product-detail/en/CAT24C32WI-G/CAT24C32WI-GOS-ND/2061011
 
