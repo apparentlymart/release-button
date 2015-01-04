@@ -215,7 +215,7 @@ F 3 "" H 6400 2150 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9950 850  2    60   Input ~ 0
-VCC
+AVCC
 Text GLabel 9950 2050 2    60   Input ~ 0
 GND
 $Comp
@@ -263,7 +263,7 @@ F 3 "" H 9000 2650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 9950 3250 2    60   Input ~ 0
-VCC
+AVCC
 $Comp
 L C C6
 U 1 1 54A8854B
@@ -287,7 +287,7 @@ F 3 "" H 9800 2600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 Text GLabel 5150 2050 0    60   Input ~ 0
-VCC
+AVCC
 $Comp
 L R R4
 U 1 1 54A88EE7
@@ -804,4 +804,13 @@ Wire Wire Line
 	2350 3300 2400 3300
 Wire Wire Line
 	2350 3400 2400 3400
+Text GLabel 1000 1500 3    60   Output ~ 0
+AVCC
+Wire Wire Line
+	1050 1350 1000 1350
+Wire Wire Line
+	1000 1350 1000 1500
+Wire Wire Line
+	1050 1450 1000 1450
+Connection ~ 1000 1450
 $EndSCHEMATC
