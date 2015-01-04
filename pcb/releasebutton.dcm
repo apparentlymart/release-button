@@ -1,6 +1,6 @@
 EESchema-DOCLIB  Version 2.0
 #
-$CMP BtnHeader
+$CMP BTNHEADER
 D Header Connecting the Large Button
 $ENDCMP
 #
@@ -8,7 +8,7 @@ $CMP RASPIPLUSHEADER
 D Raspberry Pi Model A+/B+ IO Header
 $ENDCMP
 #
-$CMP REncHeader
+$CMP RENCHEADER
 D Rotary Encoder Attachment Header
 $ENDCMP
 #
