@@ -31,7 +31,7 @@ LIBS:contrib
 LIBS:valves
 LIBS:releasebutton
 LIBS:releasebuttonboard-cache
-EELAYER 24 0
+EELAYER 25 0
 EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
@@ -733,17 +733,6 @@ Wire Notes Line
 Text Notes 3550 900  2    60   ~ 0
 RASPBERRY PI A/B+\nGPIO HEADER
 $Comp
-L RENCHEADER U7
-U 1 1 54A8BB2E
-P 9450 5900
-F 0 "U7" H 9450 6250 60  0000 C CNN
-F 1 "RENCHEADER" H 9650 5600 60  0000 C CNN
-F 2 "" H 9450 5950 60  0000 C CNN
-F 3 "" H 9450 5950 60  0000 C CNN
-	1    9450 5900
-	0    1    1    0   
-$EndComp
-$Comp
 L ROTENC SW1
 U 1 1 54A8BB42
 P 9450 5300
@@ -761,17 +750,11 @@ Wire Wire Line
 Wire Wire Line
 	8900 5550 9350 5550
 Wire Wire Line
-	9350 5550 9350 5900
-Wire Wire Line
-	9250 5900 9250 5650
-Wire Wire Line
 	9250 5650 8800 5650
 Wire Wire Line
 	8800 5650 8800 5250
 Wire Wire Line
 	8800 5250 8950 5250
-Wire Wire Line
-	9500 5900 9500 5550
 Wire Wire Line
 	9500 5550 10000 5550
 Wire Wire Line
@@ -779,15 +762,11 @@ Wire Wire Line
 Wire Wire Line
 	10000 5400 9950 5400
 Wire Wire Line
-	9600 5900 9600 5650
-Wire Wire Line
 	9600 5650 10100 5650
 Wire Wire Line
 	10100 5650 10100 5300
 Wire Wire Line
 	10100 5300 9950 5300
-Wire Wire Line
-	9700 5900 9700 5750
 Wire Wire Line
 	9700 5750 10200 5750
 Wire Wire Line
@@ -804,4 +783,25 @@ Wire Notes Line
 	10300 6500 10300 4850
 Wire Notes Line
 	10300 4850 8700 4850
+$Comp
+L REncHeader U7
+U 1 1 54A8C599
+P 9450 5900
+F 0 "U7" H 9450 6250 60  0000 C CNN
+F 1 "REncHeader" H 9650 5600 60  0000 C CNN
+F 2 "" H 9450 5950 60  0000 C CNN
+F 3 "" H 9450 5950 60  0000 C CNN
+	1    9450 5900
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	9250 5900 9250 5650
+Wire Wire Line
+	9350 5550 9350 5900
+Wire Wire Line
+	9500 5900 9500 5550
+Wire Wire Line
+	9600 5900 9600 5650
+Wire Wire Line
+	9700 5900 9700 5750
 $EndSCHEMATC
