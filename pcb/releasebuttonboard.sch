@@ -493,7 +493,7 @@ Wire Wire Line
 Wire Wire Line
 	8600 1350 8700 1350
 Wire Wire Line
-	8550 1650 8600 1650
+	8500 1650 8600 1650
 Wire Wire Line
 	8600 1650 8600 1550
 Wire Wire Line
@@ -505,7 +505,7 @@ Wire Wire Line
 Wire Wire Line
 	8600 2550 8700 2550
 Wire Wire Line
-	8550 2850 8600 2850
+	8500 2850 8600 2850
 Wire Wire Line
 	8600 2850 8600 2750
 Wire Wire Line
