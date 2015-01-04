@@ -81,12 +81,12 @@ $EndComp
 $Comp
 L REncHeader U?
 U 1 1 54A7ABB1
-P 3150 1750
-F 0 "U?" H 3150 2100 60  0000 C CNN
-F 1 "REncHeader" H 3350 1450 60  0000 C CNN
-F 2 "" H 3150 1800 60  0000 C CNN
-F 3 "" H 3150 1800 60  0000 C CNN
-	1    3150 1750
+P 4600 5750
+F 0 "U?" H 4600 6100 60  0000 C CNN
+F 1 "REncHeader" H 4800 5450 60  0000 C CNN
+F 2 "" H 4600 5800 60  0000 C CNN
+F 3 "" H 4600 5800 60  0000 C CNN
+	1    4600 5750
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -288,6 +288,111 @@ F 3 "" H 9800 2600 60  0000 C CNN
 	1    9800 2600
 	1    0    0    -1  
 $EndComp
+Text GLabel 5150 2050 0    60   Input ~ 0
+VCC
+$Comp
+L R R?
+U 1 1 54A88EE7
+P 5500 1850
+F 0 "R?" V 5580 1850 40  0000 C CNN
+F 1 "10K" V 5507 1851 40  0000 C CNN
+F 2 "" V 5430 1850 30  0000 C CNN
+F 3 "" H 5500 1850 30  0000 C CNN
+	1    5500 1850
+	0    -1   -1   0   
+$EndComp
+Text GLabel 5150 2250 0    60   Input ~ 0
+GND
+Text GLabel 5150 1600 0    60   Input ~ 0
+GND
+Text GLabel 5150 2500 0    60   Input ~ 0
+GND
+$Comp
+L C C?
+U 1 1 54A89346
+P 5400 1600
+F 0 "C?" H 5400 1700 40  0000 L CNN
+F 1 "0.1uF" H 5406 1515 40  0000 L CNN
+F 2 "" H 5438 1450 30  0000 C CNN
+F 3 "" H 5400 1600 60  0000 C CNN
+	1    5400 1600
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 54A89373
+P 5400 1400
+F 0 "C?" H 5400 1500 40  0000 L CNN
+F 1 "0.1uF" H 5406 1315 40  0000 L CNN
+F 2 "" H 5438 1250 30  0000 C CNN
+F 3 "" H 5400 1400 60  0000 C CNN
+	1    5400 1400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 54A894DA
+P 5400 2500
+F 0 "C?" H 5400 2600 40  0000 L CNN
+F 1 "0.1uF" H 5406 2415 40  0000 L CNN
+F 2 "" H 5438 2350 30  0000 C CNN
+F 3 "" H 5400 2500 60  0000 C CNN
+	1    5400 2500
+	0    -1   -1   0   
+$EndComp
+$Comp
+L C C?
+U 1 1 54A894E5
+P 5400 2700
+F 0 "C?" H 5400 2800 40  0000 L CNN
+F 1 "0.1uF" H 5406 2615 40  0000 L CNN
+F 2 "" H 5438 2550 30  0000 C CNN
+F 3 "" H 5400 2700 60  0000 C CNN
+	1    5400 2700
+	0    -1   -1   0   
+$EndComp
+Text Label 5150 1400 2    60   ~ 0
+AUD_R
+Text Label 5150 2700 2    60   ~ 0
+AUD_L
+Text Notes 4850 3350 0    60   ~ 0
+AUDIO OUTPUT
+Text GLabel 4200 7600 0    60   Input ~ 0
+GND
+Text GLabel 4200 6700 0    60   Input ~ 0
+VCC
+Text Label 4200 7000 2    60   ~ 0
+OLEDCLK
+Text Label 4200 7100 2    60   ~ 0
+OLEDDATA
+Text Label 4200 7200 2    60   ~ 0
+OLEDDC
+Text Label 4200 7300 2    60   ~ 0
+OLEDCS
+Text Label 4200 7450 2    60   ~ 0
+OLEDRST
+Text Label 2400 1750 0    60   ~ 0
+OLEDCS
+Text Label 2400 2350 0    60   ~ 0
+OLEDRST
+Text Label 2400 2450 0    60   ~ 0
+OLEDDC
+Text Label 2400 2050 0    60   ~ 0
+OLEDCLK
+Text Label 2400 1950 0    60   ~ 0
+OLEDDATA
+Text Label 4200 5850 2    60   ~ 0
+MNUPUSH
+Text GLabel 4500 5950 0    60   Input ~ 0
+VCC
+Text GLabel 4500 5600 0    60   Input ~ 0
+VCC
+Text Label 4200 5500 2    60   ~ 0
+MNUROTA
+Text Label 4200 5700 2    60   ~ 0
+MNUROTB
+Text Notes 3900 6250 0    39   ~ 0
+Note: Assumes Pull-down Resistors\non GPIO pins.
 Wire Wire Line
 	1050 2950 1000 2950
 Wire Wire Line
@@ -468,8 +573,6 @@ Wire Wire Line
 Wire Wire Line
 	7250 2500 7250 3250
 Connection ~ 9800 3250
-Text GLabel 5150 2050 0    60   Input ~ 0
-VCC
 Wire Wire Line
 	5850 2000 5700 2000
 Wire Wire Line
@@ -479,52 +582,13 @@ Wire Wire Line
 Wire Wire Line
 	5700 2100 5850 2100
 Connection ~ 5700 2050
-$Comp
-L R R?
-U 1 1 54A88EE7
-P 5500 1850
-F 0 "R?" V 5580 1850 40  0000 C CNN
-F 1 "10K" V 5507 1851 40  0000 C CNN
-F 2 "" V 5430 1850 30  0000 C CNN
-F 3 "" H 5500 1850 30  0000 C CNN
-	1    5500 1850
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	5250 1850 5250 2050
 Connection ~ 5250 2050
 Wire Wire Line
 	5750 1850 5850 1850
-Text GLabel 5150 2250 0    60   Input ~ 0
-GND
 Wire Wire Line
 	5850 2250 5150 2250
-Text GLabel 5150 1600 0    60   Input ~ 0
-GND
-Text GLabel 5150 2500 0    60   Input ~ 0
-GND
-$Comp
-L C C?
-U 1 1 54A89346
-P 5400 1600
-F 0 "C?" H 5400 1700 40  0000 L CNN
-F 1 "0.1uF" H 5406 1515 40  0000 L CNN
-F 2 "" H 5438 1450 30  0000 C CNN
-F 3 "" H 5400 1600 60  0000 C CNN
-	1    5400 1600
-	0    -1   -1   0   
-$EndComp
-$Comp
-L C C?
-U 1 1 54A89373
-P 5400 1400
-F 0 "C?" H 5400 1500 40  0000 L CNN
-F 1 "0.1uF" H 5406 1315 40  0000 L CNN
-F 2 "" H 5438 1250 30  0000 C CNN
-F 3 "" H 5400 1400 60  0000 C CNN
-	1    5400 1400
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	5850 1700 5650 1700
 Wire Wire Line
@@ -539,28 +603,6 @@ Wire Wire Line
 	5700 1600 5700 1400
 Wire Wire Line
 	5700 1400 5600 1400
-$Comp
-L C C?
-U 1 1 54A894DA
-P 5400 2500
-F 0 "C?" H 5400 2600 40  0000 L CNN
-F 1 "0.1uF" H 5406 2415 40  0000 L CNN
-F 2 "" H 5438 2350 30  0000 C CNN
-F 3 "" H 5400 2500 60  0000 C CNN
-	1    5400 2500
-	0    -1   -1   0   
-$EndComp
-$Comp
-L C C?
-U 1 1 54A894E5
-P 5400 2700
-F 0 "C?" H 5400 2800 40  0000 L CNN
-F 1 "0.1uF" H 5406 2615 40  0000 L CNN
-F 2 "" H 5438 2550 30  0000 C CNN
-F 3 "" H 5400 2700 60  0000 C CNN
-	1    5400 2700
-	0    -1   -1   0   
-$EndComp
 Wire Wire Line
 	5150 2500 5200 2500
 Wire Wire Line
@@ -575,10 +617,6 @@ Wire Wire Line
 	5700 2500 5700 2700
 Wire Wire Line
 	5700 2700 5600 2700
-Text Label 5150 1400 2    60   ~ 0
-AUD_R
-Text Label 5150 2700 2    60   ~ 0
-AUD_L
 Wire Wire Line
 	5150 1400 5200 1400
 Wire Wire Line
@@ -591,22 +629,6 @@ Wire Notes Line
 	4800 3400 10300 3400
 Wire Notes Line
 	10300 3400 10300 700 
-Text Notes 4850 3350 0    60   ~ 0
-AUDIO OUTPUT
-Text GLabel 4200 7600 0    60   Input ~ 0
-GND
-Text GLabel 4200 6700 0    60   Input ~ 0
-VCC
-Text Label 4200 7000 2    60   ~ 0
-OLEDCLK
-Text Label 4200 7100 2    60   ~ 0
-OLEDDATA
-Text Label 4200 7200 2    60   ~ 0
-OLEDDC
-Text Label 4200 7300 2    60   ~ 0
-OLEDCS
-Text Label 4200 7450 2    60   ~ 0
-OLEDRST
 Wire Wire Line
 	4200 6700 4400 6700
 Wire Wire Line
@@ -629,16 +651,6 @@ Wire Notes Line
 	5000 7800 5000 6500
 Wire Notes Line
 	5000 6500 3700 6500
-Text Label 2400 1750 0    60   ~ 0
-OLEDCS
-Text Label 2400 2350 0    60   ~ 0
-OLEDRST
-Text Label 2400 2450 0    60   ~ 0
-OLEDDC
-Text Label 2400 2050 0    60   ~ 0
-OLEDCLK
-Text Label 2400 1950 0    60   ~ 0
-OLEDDATA
 Wire Wire Line
 	2350 1750 2400 1750
 Wire Wire Line
@@ -649,4 +661,36 @@ Wire Wire Line
 	2350 2350 2400 2350
 Wire Wire Line
 	2350 2450 2400 2450
+Wire Wire Line
+	4500 5950 4600 5950
+Wire Wire Line
+	4500 5600 4600 5600
+Wire Wire Line
+	4200 5850 4600 5850
+Wire Wire Line
+	4200 5700 4600 5700
+Wire Wire Line
+	4200 5500 4600 5500
+Wire Notes Line
+	3700 5200 3700 6300
+Wire Notes Line
+	3700 6300 5200 6300
+Wire Notes Line
+	5200 6300 5200 5200
+Wire Notes Line
+	5200 5200 3700 5200
+Text Notes 4000 5300 0    60   ~ 0
+ROTARY ENCODER HEADER
+Text Label 2400 3650 0    60   ~ 0
+MNUPUSH
+Text Label 2400 3450 0    60   ~ 0
+MNUROTA
+Wire Wire Line
+	2350 3650 2400 3650
+Wire Wire Line
+	2350 3450 2400 3450
+Text Label 2400 3550 0    60   ~ 0
+MNUROTB
+Wire Wire Line
+	2350 3550 2400 3550
 $EndSCHEMATC
