@@ -59,12 +59,12 @@ $EndComp
 $Comp
 L OLEDHeader U?
 U 1 1 54A7A9C0
-P 3150 2750
-F 0 "U?" H 3150 3250 60  0000 C CNN
-F 1 "OLEDHeader" H 3350 2150 60  0000 C CNN
-F 2 "" H 3150 2950 60  0000 C CNN
-F 3 "" H 3150 2950 60  0000 C CNN
-	1    3150 2750
+P 4400 7100
+F 0 "U?" H 4400 7600 60  0000 C CNN
+F 1 "OLEDHeader" H 4600 6500 60  0000 C CNN
+F 2 "" H 4400 7300 60  0000 C CNN
+F 3 "" H 4400 7300 60  0000 C CNN
+	1    4400 7100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -593,4 +593,60 @@ Wire Notes Line
 	10300 3400 10300 700 
 Text Notes 4850 3350 0    60   ~ 0
 AUDIO OUTPUT
+Text GLabel 4200 7600 0    60   Input ~ 0
+GND
+Text GLabel 4200 6700 0    60   Input ~ 0
+VCC
+Text Label 4200 7000 2    60   ~ 0
+OLEDCLK
+Text Label 4200 7100 2    60   ~ 0
+OLEDDATA
+Text Label 4200 7200 2    60   ~ 0
+OLEDDC
+Text Label 4200 7300 2    60   ~ 0
+OLEDCS
+Text Label 4200 7450 2    60   ~ 0
+OLEDRST
+Wire Wire Line
+	4200 6700 4400 6700
+Wire Wire Line
+	4200 7000 4400 7000
+Wire Wire Line
+	4200 7100 4400 7100
+Wire Wire Line
+	4200 7200 4400 7200
+Wire Wire Line
+	4200 7300 4400 7300
+Wire Wire Line
+	4200 7450 4400 7450
+Wire Wire Line
+	4200 7600 4400 7600
+Wire Notes Line
+	3700 6500 3700 7800
+Wire Notes Line
+	3700 7800 5000 7800
+Wire Notes Line
+	5000 7800 5000 6500
+Wire Notes Line
+	5000 6500 3700 6500
+Text Label 2400 1750 0    60   ~ 0
+OLEDCS
+Text Label 2400 2350 0    60   ~ 0
+OLEDRST
+Text Label 2400 2450 0    60   ~ 0
+OLEDDC
+Text Label 2400 2050 0    60   ~ 0
+OLEDCLK
+Text Label 2400 1950 0    60   ~ 0
+OLEDDATA
+Wire Wire Line
+	2350 1750 2400 1750
+Wire Wire Line
+	2350 1950 2400 1950
+Wire Wire Line
+	2350 2050 2400 2050
+Wire Wire Line
+	2350 2350 2400 2350
+Wire Wire Line
+	2350 2450 2400 2450
 $EndSCHEMATC
