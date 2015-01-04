@@ -371,9 +371,9 @@ Text Label 4100 7450 2    60   ~ 0
 OLEDRST
 Text Label 2400 1700 0    60   ~ 0
 OLEDCS
-Text Label 2400 2300 0    60   ~ 0
+Text Label 2400 3300 0    60   ~ 0
 OLEDRST
-Text Label 2400 2400 0    60   ~ 0
+Text Label 2400 3400 0    60   ~ 0
 OLEDDC
 Text Label 2400 2000 0    60   ~ 0
 OLEDCLK
@@ -389,7 +389,7 @@ Text Label 4100 5750 2    60   ~ 0
 MNUROTA
 Text Label 4100 5950 2    60   ~ 0
 MNUROTB
-Text Notes 2450 3050 0    39   ~ 0
+Text Notes 2500 3900 0    39   ~ 0
 Note: Internal Pull-down Resistors\nexpected on all switch inputs.
 Wire Wire Line
 	1050 2900 1000 2900
@@ -649,10 +649,6 @@ Wire Wire Line
 Wire Wire Line
 	2350 2000 2400 2000
 Wire Wire Line
-	2350 2300 2400 2300
-Wire Wire Line
-	2350 2400 2400 2400
-Wire Wire Line
 	4400 6200 4500 6200
 Wire Wire Line
 	4400 5850 4500 5850
@@ -668,24 +664,16 @@ Text Notes 3900 5550 0    60   ~ 0
 ROTARY ENCODER HEADER
 Text Label 2400 3600 0    60   ~ 0
 MNUPUSH
-Text Label 2400 3400 0    60   ~ 0
+Text Label 2400 2600 0    60   ~ 0
 MNUROTA
 Wire Wire Line
 	2350 3600 2400 3600
-Wire Wire Line
-	2350 3400 2400 3400
-Text Label 2400 3500 0    60   ~ 0
-MNUROTB
-Wire Wire Line
-	2350 3500 2400 3500
-Text Label 2400 2600 0    60   ~ 0
-BTNLED
 Text Label 2400 2700 0    60   ~ 0
+MNUROTB
+Text Label 2400 3100 0    60   ~ 0
+BTNLED
+Text Label 2400 3200 0    60   ~ 0
 BTNPUSH
-Wire Wire Line
-	2350 2600 2400 2600
-Wire Wire Line
-	2350 2700 2400 2700
 Text GLabel 5500 7600 0    60   Input ~ 0
 GND
 Text GLabel 5500 7200 0    60   Input ~ 0
@@ -804,4 +792,16 @@ Wire Wire Line
 	9600 5900 9600 5650
 Wire Wire Line
 	9700 5900 9700 5750
+Wire Wire Line
+	2350 2600 2400 2600
+Wire Wire Line
+	2350 2700 2400 2700
+Wire Wire Line
+	2350 3100 2400 3100
+Wire Wire Line
+	2350 3200 2400 3200
+Wire Wire Line
+	2350 3300 2400 3300
+Wire Wire Line
+	2350 3400 2400 3400
 $EndSCHEMATC
