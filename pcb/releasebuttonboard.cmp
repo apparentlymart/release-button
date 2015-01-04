@@ -1,0 +1,185 @@
+Cmp-Mod V01 Created by Cvpcb (2014-jul-16 BZR unknown)-product   date = Sat 03 Jan 2015 09:02:07 PM PST
+
+BeginCmp
+TimeStamp = /54A8751D;
+Reference = C1;
+ValeurCmp = 100nF;
+IdModule  = Discret:C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A89373;
+Reference = C2;
+ValeurCmp = 0.1uF;
+IdModule  = Discret:C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A89346;
+Reference = C3;
+ValeurCmp = 0.1uF;
+IdModule  = Discret:C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A894DA;
+Reference = C4;
+ValeurCmp = 0.1uF;
+IdModule  = Discret:C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A894E5;
+Reference = C5;
+ValeurCmp = 0.1uF;
+IdModule  = Discret:C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A8854B;
+Reference = C6;
+ValeurCmp = 1uF;
+IdModule  = Discret:C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A8856C;
+Reference = C7;
+ValeurCmp = 1uF;
+IdModule  = Discret:C2;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A87BC1;
+Reference = FB1;
+ValeurCmp = FILTER;
+IdModule  = Discret:R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A87BD5;
+Reference = FB2;
+ValeurCmp = FILTER;
+IdModule  = Discret:R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A884E7;
+Reference = FB3;
+ValeurCmp = FILTER;
+IdModule  = Discret:R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A884ED;
+Reference = FB4;
+ValeurCmp = FILTER;
+IdModule  = Discret:R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A841ED;
+Reference = JP1;
+ValeurCmp = JUMPER;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x02;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A87661;
+Reference = R1;
+ValeurCmp = 1K;
+IdModule  = Discret:R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A878B0;
+Reference = R2;
+ValeurCmp = 3.9K;
+IdModule  = Discret:R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A878C4;
+Reference = R3;
+ValeurCmp = 3.9K;
+IdModule  = Discret:R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A88EE7;
+Reference = R4;
+ValeurCmp = 10K;
+IdModule  = Discret:R3;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A88374;
+Reference = SP1;
+ValeurCmp = SPEAKER;
+IdModule  = Local:Terminal_Block_2x3.5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A884F3;
+Reference = SP2;
+ValeurCmp = SPEAKER;
+IdModule  = Local:Terminal_Block_2x3.5mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A8BB42;
+Reference = SW1;
+ValeurCmp = ROTENC;
+IdModule  = Local:PEC11;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A83FFB;
+Reference = U1;
+ValeurCmp = 24C16;
+IdModule  = SOIC_Packages:SOIC-8_3.9x4.9mm_Pitch1.27mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A79B4A;
+Reference = U2;
+ValeurCmp = RASPIPLUSHEADER;
+IdModule  = Pin_Headers:Pin_Header_Straight_2x20;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A7A9C0;
+Reference = U3;
+ValeurCmp = OLEDHeader;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x08;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A7ABB1;
+Reference = U4;
+ValeurCmp = REncHeader;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x05;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A7AA14;
+Reference = U5;
+ValeurCmp = BtnHeader;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x04;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A880F4;
+Reference = U6;
+ValeurCmp = PAM8407;
+IdModule  = SOIC_Packages:SOIC-16_3.9x9.9mm_Pitch1.27mm;
+EndCmp
+
+BeginCmp
+TimeStamp = /54A8C599;
+Reference = U7;
+ValeurCmp = REncHeader;
+IdModule  = Pin_Headers:Pin_Header_Straight_1x05;
+EndCmp
+
+EndListe
