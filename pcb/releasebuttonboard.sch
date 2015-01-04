@@ -48,45 +48,45 @@ $EndDescr
 $Comp
 L RASPIPLUSHEADER U?
 U 1 1 54A79B4A
-P 1700 2350
-F 0 "U?" H 1300 3700 60  0000 C CNN
-F 1 "RASPIPLUSHEADER" H 1750 900 60  0000 C CNN
-F 2 "" H 1700 2100 60  0000 C CNN
-F 3 "" H 1700 2100 60  0000 C CNN
-	1    1700 2350
+P 1700 2300
+F 0 "U?" H 1300 3650 60  0000 C CNN
+F 1 "RASPIPLUSHEADER" H 1750 850 60  0000 C CNN
+F 2 "" H 1700 2050 60  0000 C CNN
+F 3 "" H 1700 2050 60  0000 C CNN
+	1    1700 2300
 	1    0    0    -1  
 $EndComp
 $Comp
 L OLEDHeader U?
 U 1 1 54A7A9C0
-P 4400 7100
-F 0 "U?" H 4400 7600 60  0000 C CNN
-F 1 "OLEDHeader" H 4600 6500 60  0000 C CNN
-F 2 "" H 4400 7300 60  0000 C CNN
-F 3 "" H 4400 7300 60  0000 C CNN
-	1    4400 7100
+P 4300 7100
+F 0 "U?" H 4300 7600 60  0000 C CNN
+F 1 "OLEDHeader" H 4500 6500 60  0000 C CNN
+F 2 "" H 4300 7300 60  0000 C CNN
+F 3 "" H 4300 7300 60  0000 C CNN
+	1    4300 7100
 	1    0    0    -1  
 $EndComp
 $Comp
 L BtnHeader U?
 U 1 1 54A7AA14
-P 3150 3850
-F 0 "U?" H 3150 4150 60  0000 C CNN
-F 1 "BtnHeader" H 3350 3550 60  0000 C CNN
-F 2 "" H 3150 3900 60  0000 C CNN
-F 3 "" H 3150 3900 60  0000 C CNN
-	1    3150 3850
+P 5650 7400
+F 0 "U?" H 5650 7700 60  0000 C CNN
+F 1 "BtnHeader" H 5850 7100 60  0000 C CNN
+F 2 "" H 5650 7450 60  0000 C CNN
+F 3 "" H 5650 7450 60  0000 C CNN
+	1    5650 7400
 	1    0    0    -1  
 $EndComp
 $Comp
 L REncHeader U?
 U 1 1 54A7ABB1
-P 4600 5750
-F 0 "U?" H 4600 6100 60  0000 C CNN
-F 1 "REncHeader" H 4800 5450 60  0000 C CNN
-F 2 "" H 4600 5800 60  0000 C CNN
-F 3 "" H 4600 5800 60  0000 C CNN
-	1    4600 5750
+P 4500 6000
+F 0 "U?" H 4500 6350 60  0000 C CNN
+F 1 "REncHeader" H 4700 5700 60  0000 C CNN
+F 2 "" H 4500 6050 60  0000 C CNN
+F 3 "" H 4500 6050 60  0000 C CNN
+	1    4500 6000
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -100,13 +100,13 @@ F 3 "" H 1600 6850 60  0000 C CNN
 	1    1600 6850
 	1    0    0    -1  
 $EndComp
-Text GLabel 1000 3750 3    60   Output ~ 0
+Text GLabel 1000 3700 3    60   Output ~ 0
 GND
-Text GLabel 1000 1050 1    60   Output ~ 0
+Text GLabel 1000 1000 1    60   Output ~ 0
 VCC
-Text Label 1000 2150 2    60   ~ 0
+Text Label 1000 2100 2    60   ~ 0
 ID_SC
-Text Label 1000 2250 2    60   ~ 0
+Text Label 1000 2200 2    60   ~ 0
 ID_SD
 Text GLabel 1600 5950 1    60   Input ~ 0
 VCC
@@ -129,9 +129,9 @@ Text Label 3000 7050 0    60   ~ 0
 ID_SD
 Text Notes 2750 5800 0    60   ~ 0
 HAT ID EEPROM
-Text Label 2400 2150 0    60   ~ 0
+Text Label 2400 2100 0    60   ~ 0
 AUD_L
-Text Label 2400 2250 0    60   ~ 0
+Text Label 2400 2200 0    60   ~ 0
 AUD_R
 $Comp
 L C C?
@@ -214,7 +214,7 @@ F 3 "" H 6400 2150 60  0000 C CNN
 	1    6450 2050
 	1    0    0    -1  
 $EndComp
-Text GLabel 1000 1600 3    60   Output ~ 0
+Text GLabel 1000 1550 3    60   Output ~ 0
 AVCC
 Text GLabel 9950 850  2    60   Input ~ 0
 VCC
@@ -357,78 +357,78 @@ Text Label 5150 2700 2    60   ~ 0
 AUD_L
 Text Notes 4850 3350 0    60   ~ 0
 AUDIO OUTPUT
-Text GLabel 4200 7600 0    60   Input ~ 0
+Text GLabel 4100 7600 0    60   Input ~ 0
 GND
-Text GLabel 4200 6700 0    60   Input ~ 0
+Text GLabel 4100 6700 0    60   Input ~ 0
 VCC
-Text Label 4200 7000 2    60   ~ 0
+Text Label 4100 7000 2    60   ~ 0
 OLEDCLK
-Text Label 4200 7100 2    60   ~ 0
+Text Label 4100 7100 2    60   ~ 0
 OLEDDATA
-Text Label 4200 7200 2    60   ~ 0
+Text Label 4100 7200 2    60   ~ 0
 OLEDDC
-Text Label 4200 7300 2    60   ~ 0
+Text Label 4100 7300 2    60   ~ 0
 OLEDCS
-Text Label 4200 7450 2    60   ~ 0
+Text Label 4100 7450 2    60   ~ 0
 OLEDRST
-Text Label 2400 1750 0    60   ~ 0
+Text Label 2400 1700 0    60   ~ 0
 OLEDCS
-Text Label 2400 2350 0    60   ~ 0
+Text Label 2400 2300 0    60   ~ 0
 OLEDRST
-Text Label 2400 2450 0    60   ~ 0
+Text Label 2400 2400 0    60   ~ 0
 OLEDDC
-Text Label 2400 2050 0    60   ~ 0
+Text Label 2400 2000 0    60   ~ 0
 OLEDCLK
-Text Label 2400 1950 0    60   ~ 0
+Text Label 2400 1900 0    60   ~ 0
 OLEDDATA
-Text Label 4200 5850 2    60   ~ 0
+Text Label 4100 6100 2    60   ~ 0
 MNUPUSH
-Text GLabel 4500 5950 0    60   Input ~ 0
+Text GLabel 4400 6200 0    60   Input ~ 0
 VCC
-Text GLabel 4500 5600 0    60   Input ~ 0
+Text GLabel 4400 5850 0    60   Input ~ 0
 VCC
-Text Label 4200 5500 2    60   ~ 0
+Text Label 4100 5750 2    60   ~ 0
 MNUROTA
-Text Label 4200 5700 2    60   ~ 0
+Text Label 4100 5950 2    60   ~ 0
 MNUROTB
-Text Notes 3900 6250 0    39   ~ 0
-Note: Assumes Pull-down Resistors\non GPIO pins.
+Text Notes 2450 3050 0    39   ~ 0
+Note: Internal Pull-down Resistors\nexpected on all switch inputs.
 Wire Wire Line
-	1050 2950 1000 2950
+	1050 2900 1000 2900
 Wire Wire Line
-	1000 2950 1000 3750
+	1000 2900 1000 3700
 Wire Wire Line
-	1050 3050 1000 3050
-Connection ~ 1000 3050
+	1050 3000 1000 3000
+Connection ~ 1000 3000
 Wire Wire Line
-	1050 3150 1000 3150
-Connection ~ 1000 3150
+	1050 3100 1000 3100
+Connection ~ 1000 3100
 Wire Wire Line
-	1050 3250 1000 3250
-Connection ~ 1000 3250
+	1050 3200 1000 3200
+Connection ~ 1000 3200
 Wire Wire Line
-	1050 3350 1000 3350
-Connection ~ 1000 3350
+	1050 3300 1000 3300
+Connection ~ 1000 3300
 Wire Wire Line
-	1050 3450 1000 3450
-Connection ~ 1000 3450
+	1050 3400 1000 3400
+Connection ~ 1000 3400
 Wire Wire Line
-	1050 3550 1000 3550
-Connection ~ 1000 3550
+	1050 3500 1000 3500
+Connection ~ 1000 3500
 Wire Wire Line
-	1050 3650 1000 3650
-Connection ~ 1000 3650
+	1050 3600 1000 3600
+Connection ~ 1000 3600
 Wire Wire Line
-	1000 1050 1000 1250
+	1000 1000 1000 1200
 Wire Wire Line
-	1000 1250 1050 1250
+	1000 1200 1050 1200
 Wire Wire Line
-	1050 1150 1000 1150
-Connection ~ 1000 1150
+	1050 1100 1000 1100
+Connection ~ 1000 1100
 Wire Wire Line
-	1000 2150 1050 2150
+	1000 2100 1050 2100
 Wire Wire Line
-	1000 2250 1050 2250
+	1000 2200 1050 2200
 Wire Wire Line
 	1600 5950 1600 6350
 Wire Wire Line
@@ -451,9 +451,9 @@ Wire Wire Line
 Wire Wire Line
 	2300 7050 3000 7050
 Wire Wire Line
-	2350 2150 2400 2150
+	2350 2100 2400 2100
 Wire Wire Line
-	2350 2250 2400 2250
+	2350 2200 2400 2200
 Wire Wire Line
 	1000 6100 850  6100
 Connection ~ 850  6650
@@ -489,12 +489,12 @@ Wire Notes Line
 Wire Notes Line
 	700  7800 700  5650
 Wire Wire Line
-	1050 1500 1000 1500
+	1050 1450 1000 1450
 Wire Wire Line
-	1000 1400 1000 1600
+	1000 1350 1000 1550
 Wire Wire Line
-	1050 1400 1000 1400
-Connection ~ 1000 1500
+	1050 1350 1000 1350
+Connection ~ 1000 1450
 Wire Wire Line
 	8500 1250 8600 1250
 Wire Wire Line
@@ -630,67 +630,115 @@ Wire Notes Line
 Wire Notes Line
 	10300 3400 10300 700 
 Wire Wire Line
-	4200 6700 4400 6700
+	4100 6700 4300 6700
 Wire Wire Line
-	4200 7000 4400 7000
+	4100 7000 4300 7000
 Wire Wire Line
-	4200 7100 4400 7100
+	4100 7100 4300 7100
 Wire Wire Line
-	4200 7200 4400 7200
+	4100 7200 4300 7200
 Wire Wire Line
-	4200 7300 4400 7300
+	4100 7300 4300 7300
 Wire Wire Line
-	4200 7450 4400 7450
+	4100 7450 4300 7450
 Wire Wire Line
-	4200 7600 4400 7600
+	4100 7600 4300 7600
 Wire Notes Line
-	3700 6500 3700 7800
+	3600 6500 3600 7800
 Wire Notes Line
-	3700 7800 5000 7800
+	3600 7800 4900 7800
 Wire Notes Line
-	5000 7800 5000 6500
+	4900 7800 4900 6500
 Wire Notes Line
-	5000 6500 3700 6500
+	4900 6500 3600 6500
 Wire Wire Line
-	2350 1750 2400 1750
+	2350 1700 2400 1700
 Wire Wire Line
-	2350 1950 2400 1950
+	2350 1900 2400 1900
 Wire Wire Line
-	2350 2050 2400 2050
+	2350 2000 2400 2000
 Wire Wire Line
-	2350 2350 2400 2350
+	2350 2300 2400 2300
 Wire Wire Line
-	2350 2450 2400 2450
+	2350 2400 2400 2400
 Wire Wire Line
-	4500 5950 4600 5950
+	4400 6200 4500 6200
 Wire Wire Line
-	4500 5600 4600 5600
+	4400 5850 4500 5850
 Wire Wire Line
-	4200 5850 4600 5850
+	4100 6100 4500 6100
 Wire Wire Line
-	4200 5700 4600 5700
+	4100 5950 4500 5950
 Wire Wire Line
-	4200 5500 4600 5500
+	4100 5750 4500 5750
 Wire Notes Line
-	3700 5200 3700 6300
-Wire Notes Line
-	3700 6300 5200 6300
-Wire Notes Line
-	5200 6300 5200 5200
-Wire Notes Line
-	5200 5200 3700 5200
-Text Notes 4000 5300 0    60   ~ 0
+	5100 5450 3600 5450
+Text Notes 3900 5550 0    60   ~ 0
 ROTARY ENCODER HEADER
-Text Label 2400 3650 0    60   ~ 0
+Text Label 2400 3600 0    60   ~ 0
 MNUPUSH
-Text Label 2400 3450 0    60   ~ 0
+Text Label 2400 3400 0    60   ~ 0
 MNUROTA
 Wire Wire Line
-	2350 3650 2400 3650
+	2350 3600 2400 3600
 Wire Wire Line
-	2350 3450 2400 3450
-Text Label 2400 3550 0    60   ~ 0
+	2350 3400 2400 3400
+Text Label 2400 3500 0    60   ~ 0
 MNUROTB
 Wire Wire Line
-	2350 3550 2400 3550
+	2350 3500 2400 3500
+Text Label 2400 2600 0    60   ~ 0
+BTNLED
+Text Label 2400 2700 0    60   ~ 0
+BTNPUSH
+Wire Wire Line
+	2350 2600 2400 2600
+Wire Wire Line
+	2350 2700 2400 2700
+Text GLabel 5500 7600 0    60   Input ~ 0
+GND
+Text GLabel 5500 7200 0    60   Input ~ 0
+VCC
+Text Label 5500 7350 2    60   ~ 0
+BTNPUSH
+Text Label 5500 7500 2    60   ~ 0
+BTNLED
+Wire Wire Line
+	5500 7200 5650 7200
+Wire Wire Line
+	5500 7350 5550 7350
+Wire Wire Line
+	5550 7350 5550 7300
+Wire Wire Line
+	5550 7300 5650 7300
+Wire Wire Line
+	5500 7500 5650 7500
+Wire Wire Line
+	5500 7600 5650 7600
+Text Notes 6000 7000 2    60   ~ 0
+BUTTON HEADER
+Wire Notes Line
+	6150 7800 6150 6900
+Wire Notes Line
+	6150 6900 5000 6900
+Wire Notes Line
+	5000 6900 5000 7800
+Wire Notes Line
+	5000 7800 6150 7800
+Wire Notes Line
+	3600 5450 3600 6400
+Wire Notes Line
+	3600 6400 5100 6400
+Wire Notes Line
+	5100 6400 5100 5450
+Wire Notes Line
+	700  700  700  4000
+Wire Notes Line
+	700  4000 3600 4000
+Wire Notes Line
+	3600 4000 3600 700 
+Wire Notes Line
+	3600 700  700  700 
+Text Notes 3550 900  2    60   ~ 0
+RASPBERRY PI A/B+\nGPIO HEADER
 $EndSCHEMATC
