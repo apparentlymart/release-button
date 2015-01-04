@@ -214,8 +214,6 @@ F 3 "" H 6400 2150 60  0000 C CNN
 	1    6450 2050
 	1    0    0    -1  
 $EndComp
-Text GLabel 1000 1550 3    60   Output ~ 0
-AVCC
 Text GLabel 9950 850  2    60   Input ~ 0
 VCC
 Text GLabel 9950 2050 2    60   Input ~ 0
@@ -488,13 +486,6 @@ Wire Notes Line
 	3500 7800 700  7800
 Wire Notes Line
 	700  7800 700  5650
-Wire Wire Line
-	1050 1450 1000 1450
-Wire Wire Line
-	1000 1350 1000 1550
-Wire Wire Line
-	1050 1350 1000 1350
-Connection ~ 1000 1450
 Wire Wire Line
 	8500 1250 8600 1250
 Wire Wire Line
