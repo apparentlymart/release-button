@@ -1135,7 +1135,7 @@
   (gr_line (start 141.794 100.646) (end 141.794 123.252) (angle 90) (layer F.SilkS) (width 0.2))
   (gr_line (start 138.238 97.09) (end 141.794 100.646) (angle 90) (layer F.SilkS) (width 0.2))
   (gr_line (start 138.238 68.388) (end 138.238 97.09) (angle 90) (layer F.SilkS) (width 0.2))
-  (gr_text v0.1 (at 106.996 82.358 90) (layer F.SilkS)
+  (gr_text v0.1 (at 106.996 82.104 90) (layer F.SilkS)
     (effects (font (size 1.27 1.27) (thickness 0.25)))
   )
   (gr_text "Pick 'n' Push" (at 103.186 96.074 90) (layer F.SilkS)
